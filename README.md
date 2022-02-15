@@ -63,6 +63,12 @@ curl -v localhost:8080/person    \
      -H 'Content-Type: application/json'
 ```
 
+#### Age Verification
+``` BASH
+curl -v localhost:8080/person/1/verify    \
+     -H 'Content-Type: application/json'
+```
+
 #### Get Metrics
 ``` BASH
 curl -v localhost:8080/person/metrics    \
