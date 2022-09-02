@@ -1,0 +1,6 @@
+com.interchecks: 
+  validations: 
+    minAge: 1
+    maxAge: 100
+
+    

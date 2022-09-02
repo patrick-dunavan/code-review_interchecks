@@ -1,8 +1,13 @@
 package com.interchecks.review.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
+
 public class Metrics {
-    Double averageAge;
+	
+    private Double averageAge;
+    
 }

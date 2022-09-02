@@ -8,14 +8,21 @@ import java.util.OptionalDouble;
 
 @Service
 public class MetricsService {
-    @Autowired
-    private PersonService personService;
+	
+	@Autowired
+	private PersonService personService;
 
-    public OptionalDouble getAverageAgeOfAllPeople()
-    {
-        return personService.findAll()
-                .stream()
-                .mapToDouble(Person::getAge)
-                .average();
-    }
+	
+	public OptionalDouble getAverageAgeOfAllPeople() {
+		
+		final OptionalDouble retVal = personService.findAll().stream()
+			.filter(aPerson -> null!=aPerson.getAge())
+			.mapToDouble(Person::getAge)
+			.average();
+		
+		return retVal;
+		
+	}
+	
+	
 }
