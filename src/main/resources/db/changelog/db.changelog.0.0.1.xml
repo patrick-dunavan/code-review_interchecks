@@ -17,6 +17,9 @@
         <addColumn tableName="person">
             <column name="age" type="int" />
         </addColumn>
+        
+        <addNotNullConstraint tableName="person" columnName="age"/> <!-- pdd -->
+        
     </changeSet>
 
 </databaseChangeLog>

@@ -7,11 +7,11 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.interchecks.review.config.ValidationsConfig;
+import static com.interchecks.review.util.Util.infoIf;
 
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
-//@Component()
 @Slf4j
 @ToString
 public class MinMaxAgeValidatorImpl implements ConstraintValidator<MinMaxAgeValidator, Integer> {
@@ -44,8 +44,7 @@ public class MinMaxAgeValidatorImpl implements ConstraintValidator<MinMaxAgeVali
 
 	@PostConstruct
 	public void postConstruct() {
-		log.info("Constructed: " + this);
-
+		infoIf(log, () -> "Constructed :" + this);
 	}
 
 }

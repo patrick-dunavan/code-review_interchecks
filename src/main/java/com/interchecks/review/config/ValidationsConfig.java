@@ -5,11 +5,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import static com.interchecks.review.util.Util.*;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
-@ConfigurationProperties(prefix="com.interchecks.validations")
+@ConfigurationProperties(prefix = "com.interchecks.validations")
 
 @Data
 @Slf4j
@@ -17,13 +19,16 @@ import lombok.extern.slf4j.Slf4j;
 public class ValidationsConfig {
 
 	private int minAge;
-	private int maxAge; 
+	private int maxAge;
+
 	
-
 	@PostConstruct
-	public void postConstruct() { 
+	public void postConstruct() {
 
-		log.info("Created: " + this);
-		
+		infoIf(log, () -> "Created: " + this);
+
+		return; // TODO --- I know, superfluous; it's kinda my style... unless java has changed, the return is implicit to do and RTS...
 	}
+
+
 }

@@ -1,36 +1,29 @@
 package com.interchecks.review.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
-
+import com.interchecks.review.exception.GeneralProcessingException;
 import com.interchecks.review.model.Person;
-import com.interchecks.review.repository.PersonRepository;
+import com.interchecks.review.service.enums.PersonAttributesEnum;
 
-@Service
-public class PersonService {
+public interface PersonService {
 
-	private final PersonRepository personRepository;
+	public void save(Person person);
 
-	public PersonService(PersonRepository personRepository) {
-		this.personRepository = personRepository;
-	}
+	public Optional<Person> findById(Long id);
 
-	public Person save(Person person) {
-		return personRepository.save(person);
-	}
+	public List<Person> findAll();
 
-	public Optional<Person> findById(Long id) {
-		return personRepository.findById(id);
-	}
+	
+	/* ------------------------- */
+	/* Derived/composite methods */ 
+	/* ------------------------- */
+	
+	public double getAverageAge() throws GeneralProcessingException;
 
-	@Cacheable("people")
-	public List<Person> findAll() {
-		return personRepository.findAll();
-	}
-
+	public Map<PersonAttributesEnum, Boolean> getVerifications(Long id) throws GeneralProcessingException;
+	
+	
 }

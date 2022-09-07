@@ -8,6 +8,7 @@ import lombok.Data;
 
 public class Metrics {
 	
-    private Double averageAge;
+    private double averageAge;
+    
     
 }

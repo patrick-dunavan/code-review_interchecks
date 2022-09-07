@@ -1,28 +1,9 @@
 package com.interchecks.review.service;
 
-import com.interchecks.review.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.interchecks.review.exception.GeneralProcessingException;
 
-import java.util.OptionalDouble;
+public interface MetricsService {
 
-@Service
-public class MetricsService {
-	
-	@Autowired
-	private PersonService personService;
+	public double getAverageAgeOfAllPeople() throws GeneralProcessingException;
 
-	
-	public OptionalDouble getAverageAgeOfAllPeople() {
-		
-		final OptionalDouble retVal = personService.findAll().stream()
-			.filter(aPerson -> null!=aPerson.getAge())
-			.mapToDouble(Person::getAge)
-			.average();
-		
-		return retVal;
-		
-	}
-	
-	
 }

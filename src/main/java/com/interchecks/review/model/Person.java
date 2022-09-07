@@ -11,12 +11,21 @@ import lombok.EqualsAndHashCode;
 
 public class Person extends IdEntity {
 	
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-    
     private String firstName;
     private String lastName;
-    private Integer age;
+    
+    private int age;
+
+    
+    public static Person newInstance() { 
+    	
+    	Person p = new Person(); 
+    	
+    	//Init...
+    	
+    	return p; 
+    	
+    }
+    
     
 }
